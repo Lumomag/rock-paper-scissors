@@ -25,7 +25,7 @@ function game(){
   let computerScore = 0
 
   for (let round = 1; round <= 5; round++){
-    let player = 'rock'
+    let player = prompt('Rock, Paper or Scissors?')
     let computer = getComputerChoice();
 
     console.log(`\nRound: ${round}`);
