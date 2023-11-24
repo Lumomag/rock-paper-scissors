@@ -1,25 +1,37 @@
+
+console.log(computer);
+console.log(playRound(player, computer))
+
+//Correto!
 function getComputerChoice(){
   const choices = ['rock', 'paper', 'scissors']
-  return choices[Math.floor(Math.random() * choices * length)]
+  return choices[Math.floor(Math.random() * 3)]
 }
 
+//Correto!
 function playRound(playerSelection, computerSelection) {
-
-  getComputerChoice()
   
-  if (playerSelection === computerSelection){
-    return "It's a tie!"
-  } else if (
-    (playerSelection === 'rock' && computerSelection === 'scissors' ||
-     playerSelection === 'paper' && computerSelection === 'rock' ||
-     playerSelection === 'scissors' && computerSelection === 'paper')
-  ) {
-    return `You won! ${playerSelection} beats ${computerSelection}!`
-  } else {
-    return `You lost! ${computerSelection} beats ${playerSelection}!`
+}
+
+function game(){
+  let playerScore = 0
+  let computerScore = 0
+
+  for (let round = 1; round <= 5; round++){
+    let player = 'rock'
+    let computer = getComputerChoice();
+
+    console.log(`Round: ${round}`);
+    console.log(`Player Selection: ${player}`);
+    console.log(`Computer Selection: ${computer}`);
+
+    let result = playRound(player, computer)
+    console.log(result)
+
+    if (result.includes('You Won!')){
+      playerScore++
+    } else if (result.includes('You lost!')){
+      computerScore++
+    }
   }
 }
- 
-const playerSelection = prompt('Rock, Paper or Scissors?').toLocaleLowerCase();
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
