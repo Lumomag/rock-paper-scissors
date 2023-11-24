@@ -1,16 +1,23 @@
 
-console.log(computer);
-console.log(playRound(player, computer))
 
-//Correto!
+
 function getComputerChoice(){
   const choices = ['rock', 'paper', 'scissors']
   return choices[Math.floor(Math.random() * 3)]
 }
 
-//Correto!
 function playRound(playerSelection, computerSelection) {
-  
+  if (playerSelection === computerSelection){
+    return "\n\t\tIt's a tie!"
+  } else if (
+    (playerSelection === 'rock' && computerSelection === 'scissors') ||
+     (playerSelection === 'paper' && computerSelection === 'rock') ||
+     (playerSelection === 'scissors' && computerSelection === 'paper')
+  ) {
+    return `\n\t\tYou won! ${playerSelection} beats ${computerSelection}!`
+  } else {
+    return `\n\t\tYou lost! ${computerSelection} beats ${playerSelection}!`
+  }
 }
 
 function game(){
@@ -21,17 +28,31 @@ function game(){
     let player = 'rock'
     let computer = getComputerChoice();
 
-    console.log(`Round: ${round}`);
-    console.log(`Player Selection: ${player}`);
-    console.log(`Computer Selection: ${computer}`);
+    console.log(`\nRound: ${round}`);
+    console.log(`\t\tPlayer Selection: ${player}`);
+    console.log(`\t\tComputer Selection: ${computer}`);
 
     let result = playRound(player, computer)
     console.log(result)
 
-    if (result.includes('You Won!')){
+    if (result.includes('You won!')){
       playerScore++
     } else if (result.includes('You lost!')){
       computerScore++
     }
   }
+
+  console.log('\n---- Final result ----\n')
+  console.log(`\tPlayer Score: ${playerScore}`);
+  console.log(`\tComputer Score: ${computerScore}\n`);
+
+  if (playerScore > computerScore){
+    console.log('\tYou won the game!!!')
+  } else if (playerScore < computerScore){
+    console.log('\tYou lost the game! ;-;')
+  } else {
+    console.log("\tIt's a draw!")
+  }
 }
+
+game()
