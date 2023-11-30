@@ -17,20 +17,20 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-/*
-function game() {
+
+function game(playerSelection) {
   let playerScore = 0;
   let computerScore = 0;
 
-  let player = '';
+  let player = playerSelection;
   let computer = getComputerChoice();
 
 
-  console.log(`\t\tPlayer Selection: ${player}`);
-  console.log(`\t\tComputer Selection: ${computer}`);
+  roundResult.innerHTML += (`<p>Player Selection: ${player}\n<\p>`);
+  roundResult.innerHTML += (`<p>Computer Selection: ${computer}</p>`);
 
   let result = playRound(player, computer);
-  console.log(result);
+  roundResult.innerHTML += (result);
 
   if (result.includes("You won!")) {
     playerScore++;
@@ -38,20 +38,18 @@ function game() {
     computerScore++;
   }
 
-  /*
-  console.log("\n---- Final result ----\n");
-  console.log(`\tPlayer Score: ${playerScore}`);
-  console.log(`\tComputer Score: ${computerScore}\n`);
+  roundResult.innerHTML += ("<p>---- Final result ----</p>");
+  roundResult.innerHTML += (`<p>Player Score: ${playerScore}</p>`);
+  roundResult.innerHTML += (`<p>Computer Score: ${computerScore}</p>`);
 
   if (playerScore > computerScore) {
-    console.log("\tYou won the game!!!");
+    roundResult.innerHTML +=("\n\tYou won the game!!!");
   } else if (playerScore < computerScore) {
-    console.log("\tYou lost the game! ;-;");
+    roundResult.innerHTML +=("\tYou lost the game! ;-;");
   } else {
-    console.log("\tIt's a draw!");
+    roundResult.innerHTML +=("\tIt's a draw!");
   }
-  
-*/
+}  
 
 const rockButton = document.querySelector('.rock-btn');
 const paperButton = document.querySelector('.paper-btn');
@@ -59,13 +57,19 @@ const scissorsButton = document.querySelector('.scissors-btn');
 const roundResult = document.querySelector('.result');
 
 rockButton.addEventListener('click', () => {
-  roundResult.innerHTML = (playRound('rock', getComputerChoice()));
+  roundResult.innerHTML = '';
+  game('rock')
+ // roundResult.innerHTML = (playRound('rock', getComputerChoice()));
 });
 
 paperButton.addEventListener('click', () => {
-  roundResult.innerHTML = (playRound('paper', getComputerChoice()));
+  roundResult.innerHTML = '';
+  game('paper')
+  //roundResult.innerHTML = (playRound('paper', getComputerChoice()));
 })
 
 scissorsButton.addEventListener('click', () =>{
-  roundResult.innerHTML = (playRound('scissors', getComputerChoice()));
+  roundResult.innerHTML = '';
+  game('scissors')
+  //roundResult.innerHTML = (playRound('scissors', getComputerChoice()));
 })
