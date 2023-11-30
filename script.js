@@ -56,15 +56,16 @@ function game() {
 const rockButton = document.querySelector('.rock-btn');
 const paperButton = document.querySelector('.paper-btn');
 const scissorsButton = document.querySelector('.scissors-btn');
+const roundResult = document.querySelector('.result');
 
 rockButton.addEventListener('click', () => {
-  console.log(playRound('rock', getComputerChoice()));
+  roundResult.innerHTML = (playRound('rock', getComputerChoice()));
 });
 
 paperButton.addEventListener('click', () => {
-  console.log(playRound('paper', getComputerChoice()));
+  roundResult.innerHTML = (playRound('paper', getComputerChoice()));
 })
 
 scissorsButton.addEventListener('click', () =>{
-  console.log(playRound('scissors', getComputerChoice()));
+  roundResult.innerHTML = (playRound('scissors', getComputerChoice()));
 })
