@@ -2,7 +2,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 function getComputerChoice() {
-  const choices = ["rock", "paper", "scissors"];
+  const choices = ["Rock", "Paper", "Scissors"];
   return choices[Math.floor(Math.random() * 3)];
 }
 
@@ -10,9 +10,9 @@ function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     return "\n\t\tIt's a tie!";
   } else if (
-    (playerSelection === "rock" && computerSelection === "scissors") ||
-    (playerSelection === "paper" && computerSelection === "rock") ||
-    (playerSelection === "scissors" && computerSelection === "paper")
+    (playerSelection === "Rock" && computerSelection === "Scissors") ||
+    (playerSelection === "Paper" && computerSelection === "Rock") ||
+    (playerSelection === "Scissors" && computerSelection === "Paper")
   ) {
     return `\n\t\tYou won! ${playerSelection} beats ${computerSelection}!`;
   } else {
@@ -67,18 +67,18 @@ const roundResult = document.querySelector(".result");
 
 rockButton.addEventListener("click", () => {
   roundResult.innerHTML = "";
-  game("rock");
+  game("Rock");
   // roundResult.innerHTML = (playRound('rock', getComputerChoice()));
 });
 
 paperButton.addEventListener("click", () => {
   roundResult.innerHTML = "";
-  game("paper");
+  game("Paper");
   //roundResult.innerHTML = (playRound('paper', getComputerChoice()));
 });
 
 scissorsButton.addEventListener("click", () => {
   roundResult.innerHTML = "";
-  game("scissors");
+  game("Scissors");
   //roundResult.innerHTML = (playRound('scissors', getComputerChoice()));
 });
